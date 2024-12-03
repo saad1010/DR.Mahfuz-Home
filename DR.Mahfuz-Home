@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Rent</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f9;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .total {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #007BFF;
+    }
+    .print-btn {
+      margin-top: 20px;
+      background-color: #28a745;
+    }
+    .print-btn:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Home Rent</h1>
+    <div class="form-group">
+      <label for="month">Month</label>
+      <select id="month">
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="July">July</option>
+        <option value="August">August</option>
+        <option value="September">September</option>
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="flat">Flat No</label>
+      <select id="flat">
+        <option value="101">101</option>
+        <option value="102">102</option>
+        <option value="103">103</option>
+        <option value="104">104</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="year">Year</label>
+      <select id="year">
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Enter tenant name">
+    </div>
+    <div class="form-group">
+      <label for="rent">Rent</label>
+      <input type="number" id="rent" placeholder="Enter rent amount">
+    </div>
+    <div class="form-group">
+      <label for="water">Water</label>
+      <input type="number" id="water" placeholder="Enter water bill">
+    </div>
+    <div class="form-group">
+      <label for="electricity">Electricity</label>
+      <input type="number" id="electricity" placeholder="Enter electricity bill">
+    </div>
+    <div class="form-group">
+      <label for="gas">Gas</label>
+      <input type="number" id="gas" placeholder="Enter gas bill">
+    </div>
+    <div class="form-group">
+      <label for="utility">Utility</label>
+      <input type="number" id="utility" placeholder="Enter other utilities">
+    </div>
+    <div class="form-group">
+      <label>Total</label>
+      <div id="total" class="total">0</div>
+    </div>
+    <button onclick="calculateTotal()">Calculate Total</button>
+    <button class="print-btn" onclick="window.print()">Print</button>
+  </div>
+
+  <script>
+    function calculateTotal() {
+      const rent = parseFloat(document.getElementById('rent').value) || 0;
+      const water = parseFloat(document.getElementById('water').value) || 0;
+      const electricity = parseFloat(document.getElementById('electricity').value) || 0;
+      const gas = parseFloat(document.getElementById('gas').value) || 0;
+      const utility = parseFloat(document.getElementById('utility').value) || 0;
+
+      const total = rent + water + electricity + gas + utility;
+      document.getElementById('total').textContent = total.toFixed(2);
+    }
+  </script>
+</body>
+</html>
